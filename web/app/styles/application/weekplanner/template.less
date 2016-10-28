@@ -1,0 +1,242 @@
+#onwards {
+	// float: right;
+	// width: 95%;
+}
+
+
+.day {
+	text-align: center;
+	font-weight: bold;
+	min-width: 40px;
+	height: 40px;
+	border: solid white;
+	border-width: thin;
+	cursor: pointer;
+}
+
+#detailer_selected {
+	max-height: 47vh;
+	min-height: 47vh;
+	// overflow: auto;
+	// min-height: 53vh;
+	// min-height: 53vh;
+}
+
+#dish_details {
+	align-content:center;
+	// height: 52vh;
+  // margin-left: auto ;
+  // margin-right: auto ;
+}
+
+#ing_list {
+	padding: 1%;
+	width: 50%;
+	height: 95%;
+	overflow: auto;
+}
+
+.shopping_list {
+	overflow: auto;
+	min-height: 80vh;
+	max-height: 80vh;
+	width: 85%;
+	padding: 2%;
+	background-color: #b4a355;
+	border: dotted #2b2b2b;
+	color: white;
+	box-shadow: 3px 5px 7px #090909;
+}
+
+/*
+				"WORKSPACE" TRANSITION ANIMATIONS
+*/
+
+.workspace2.ng-enter
+{
+    -webkit-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -moz-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -ms-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -o-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+}
+
+.workspace2.ng-enter {
+    left: 100%;
+}
+.workspace2.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+
+.workspace1.ng-enter
+{
+    -webkit-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -moz-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -ms-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    -o-transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+    transition: 200ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+}
+
+.workspace1.ng-enter {
+    right: 100%;
+}
+.workspace1.ng-enter.ng-enter-active {
+    right: 0;
+}
+
+/*
+
+	ATTEMPT AT STAGGERING EFFECT
+
+*/
+
+
+
+.page-list-item.ng-enter-stagger,
+.page-list-item.ng-leave-stagger {
+    -webkit-transition-delay: 10ms;
+    -moz-transition-delay: 10ms;
+    -ms-transition-delay: 10ms;
+    -o-transition-delay: 10ms;
+    transition-delay: 10ms;
+
+    -webkit-transition-duration: 0;
+    -moz-transition-duration: 0;
+    -ms-transition-duration: 0;
+    -o-transition-duration: 0;
+    transition-duration: 0;
+}
+
+.page-list-item.ng-enter {
+    -webkit-transition:10ms linear all;
+    -moz-transition:10ms linear all;
+    -ms-transition:10ms linear all;
+    -o-transition:10ms linear all;
+    transition:10ms linear all;
+
+    -ms-opacity: 0;
+    opacity: 0;
+}
+
+
+.page-list-item.ng-enter.ng-enter-active {
+    -ms-opacity: 1;
+    opacity: 1;
+}
+
+.page-list-item.ng-leave {
+    -webkit-transition:10ms linear all;
+    -moz-transition:10ms linear all;
+    -ms-transition:10ms linear all;
+    -o-transition:10ms linear all;
+    transition:10ms linear all;
+
+    -ms-opacity: 1;
+    opacity: 1;
+}
+
+.page-list-item.ng-leave.ng-leave-active {
+    -ms-opacity: 0;
+    opacity: 0;
+}
+
+
+#monday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 50ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 50ms;
+}
+
+#tuesday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 100ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 100ms;
+}
+
+#wednesday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 150ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 150ms;
+}
+
+#thursday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 200ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 200ms;
+}
+
+#friday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 250ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 250ms;
+}
+
+#saturday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 300ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 300ms;
+}
+#sunday2 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 350ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 350ms;
+}
+
+//////////////////////
+
+#sunday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 100ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 100ms;
+}
+
+#saturday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 200ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 200ms;
+}
+
+#friday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 300ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 300ms;
+}
+
+#thursday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 400ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 400ms;
+}
+
+#wednesday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 500ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 500ms;
+}
+
+#tuesday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 600ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 600ms;
+}
+
+#monday1 {
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-delay: 700ms;
+	-moz-animation-duration: 500ms;
+	-moz-animation-delay: 700ms;
+}

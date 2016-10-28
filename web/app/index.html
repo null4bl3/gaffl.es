@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="APP">
+    <head>
+        <link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
+        <meta charset="utf-8">
+        <title>Gaffl.es</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
+        <link rel="stylesheet" type="text/css" href="css/main.min.css">
+        <script type="text/javascript" src="js/main.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body ng-controller="applicationController" style="font-family: Questrial;">
+
+        <!-- ANGULAR DIRECTIVES USED ACROSS THE ENTIRE SITE IS PLACED HERE -->
+        <comp-topbar></comp-topbar>
+        <br><br><br><br>
+        <div ui-view class="container main-container col-lg-12" ></div>
+        <!-- <div ui-view class="container main-container" style="width: 80%;"></div> -->
+        <!-- THE USER HANDLER MODALS IS PLACED HERE -->
+        <modal-sign-in></modal-sign-in>
+        <modal-sign-up></modal-sign-up>
+
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="index"><img src="./public/circle_logo.png" alt="fork" style="margin-top: -14px"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+              </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="index">Forside</a>
+                </li>
+                <li ng-if="user.id">
+                    <a ui-sref="createdish">Opret</a>
+                </li>
+                <!-- <li data-toggle="tooltip" title="Opret en bruger for at tilføje retter!">
+                    <a ng-if="!user.id">Opret</a>
+                </li> -->
+                <li>
+                    <a ui-sref="planner">Planlæg</a>
+                </li>
+                <li>
+                    <a ui-sref="inspiration">Inspiration</a>
+                </li>
+                <li>
+                    <a ui-sref="about">Om Gaffl.es</a>
+                </li>
+                <li style="cursor:pointer" ng-if="user.id">
+                    <a ng-click="toProfile()">Profil</a>
+                </li>
+            </ul>
+            <ul ng-if="!user.id" class="nav navbar-nav navbar-right" Style="padding-right: 1%; cursor:pointer">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Opret Bruger<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form ng-submit="sign_up()" class="form" role="form" accept-charset="UTF-8">
+                                        <div class="form-group">
+                                            <label class="sr-only">Brugernavn</label>
+                                            <input ng-model="new_user.username" type="text" class="form-control" id="username" placeholder="Brugernavn">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only">Email</label>
+                                            <input ng-model="new_user.email" type="email" class="form-control" id="email" placeholder="Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Kodeord</label>
+                                            <input ng-model="new_user.password" type="password" class="form-control" id="password" placeholder="Kodeord">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Gentag kodeord</label>
+                                            <input ng-model="new_user.repeat_password" type="password" class="form-control" id="repeat_password" placeholder="Gentag kodeord">
+                                        </div>
+                                        <div class="form-group">
+                                            <button ng-disabled="" type="submit" class="btn btn-success btn-block">Opret Bruger</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="cursor:pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Log Ind<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" ng-submit="sign_in()" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only">Email</label>
+                                            <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Kodeord</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" ng-model="credentials.password" placeholder="Kodeord">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" ng-model="credentials.remember_me">
+                                                Husk mig
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success btn-block">Log Ind</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul ng-if="user.id" class="nav navbar-nav navbar-right" Style="padding-right: 1%;">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Hej
+                        {{user.username}}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+
+                        <li>
+                            <a ng-click="toProfile()" style="cursor:pointer">Min profil</a>
+                        </li>
+                        <li>
+                            <a ng-click="toProfileData()" style="cursor:pointer">Data</a>
+                        </li>
+                        <li>
+                            <a ng-click="sign_out()" style="cursor:pointer">Log ud</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

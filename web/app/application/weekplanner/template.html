@@ -1,0 +1,383 @@
+<div class="row top_boss"  id="main_contain">
+<div class="col-lg-12 workspace1" ng-if="!switch">
+    <div class="col-lg-3">
+          <b>Retter</b>
+          <hr>
+          <input style="width: 50%" ng-model="name_search" class="form-control" type="text" name="name" placeholder="Søg i retter" autocomplete="off">
+          <br>
+          <span id="lefter" >
+            <table class="table-striped">
+            <!-- <table class="table-striped"  style="max-height: 200px !important" id="scrollable"> -->
+                <tr>
+                    <thead>
+                        <th>
+                            <ul class="nav nav-tabs">
+                                <li id="list_all" style="width: 50%; cursor: pointer" class="active">
+                                    <a ng-click="changeFocus('list_all')">Alle</a>
+                                </li>
+                                <li id="list_own" style="width: 50%; cursor: pointer">
+                                    <a ng-click="changeFocus('list_own')">Egne</a>
+                                </li>
+                            </ul>
+                        </th>
+                    </thead>
+                </tr>
+                <tbody class="leftList" >
+                    <tr ng-repeat="dish in dish_list | filter:name_search track by dish.id" class="page-list-item cards" >
+                        <td ng-click="select_dish(dish)" >
+                            <div >
+
+                                <b>{{dish.name}}</b>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </span>
+    </div>
+    <!-- <div class="col-lg-1"></div> -->
+    <div class="col-lg-5 col-md-6">
+
+            <!-- LEFT SIDE -->
+
+            <div class="" id="dish_details">
+                <b>Detaljer</b>
+                <hr>
+                <div style="width: 100%" id="detailer" ng-show="!choice">
+                    <div class="" style="width: 90%; margin: 0 auto;">
+                        <img data-toggle="tooltip" title="Vælg en ret i højre side" style="width: 100%; height: 100%" src="./public/pixels.png" alt=""/>
+                    </div>
+                </div>
+                <div id="detailer_selected" ng-show="choice" class="list-group-item" style="align-content: center">
+                    <div class="col-lg-5">
+                        <div class="">
+                            <h4>
+                                <b>{{focus.name}}</b>
+                            </h4>
+                            {{focus.subtext}}
+                            <hr style="color: white">
+                            <div class="row">
+                                <div id="scrollable" style=" max-height: 23vh; overflow: auto">
+                                    <ul ng-repeat="ing in focus.ingredients">
+                                        <li>{{ing.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-6">
+                        <br>
+                        <p class="alert-info" style="float: right; padding: 5px; border-radius: 5px">
+                            {{focus.score_data}}
+                        </p>
+                        <br><br><br>
+                        <div>
+                            <img style="max-width: 90%; float: right; width: auto; height: auto; max-height: 210px" ng-src="/public/{{default}}" alt=""/>
+                        </div>
+                        <br><br><br>
+                        <br><br><br>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-2">
+                            <br><br><br>
+                            <br><br><br>
+                            <p class="alert-info" style="float: right; padding: 5px; border-radius: 5px">
+                                {{focus.score_data}}
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+    </div>
+
+    <!-- BELOW -->
+    <!-- <div style="padding-top: 14%" class="col-lg-12 "> -->
+    <!-- <div class=" details">
+                    <table width="100%" height="55" border="0" cellpadding="0" cellspacing="0" class="hidden-xs">
+                        <tr>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="monday1">
+                                <button style="width: 100%; height: 50px; background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 0)" ng-disabled="dayArray[0]">
+                                    <i ng-if="!dayArray[0]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[0]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="tuesday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 1)" ng-disabled="dayArray[1]">
+                                    <i ng-if="!dayArray[1]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[1]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="wednesday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 2)" ng-disabled="dayArray[2]">
+                                    <i ng-if="!dayArray[2]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[2]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="thursday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 3)" ng-disabled="dayArray[3]">
+                                    <i ng-if="!dayArray[3]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[3]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="friday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 4)" ng-disabled="dayArray[4]">
+                                    <i ng-if="!dayArray[4]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[4]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="saturday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 5)" ng-disabled="dayArray[5]">
+                                    <i ng-if="!dayArray[5]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[5]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                            <td width="13%" height="50" class="the_day_divs_cont" id="sunday1">
+                                <button style="width: 100%; height: 50px;  background-color: transparent" class="btn" type="button" name="button" ng-click="assignToDay(focus, 6)" ng-disabled="dayArray[6]">
+                                    <i ng-if="!dayArray[6]" style="font-size: 17px; vertical-align: middle" class="material-icons">arrow_downward</i>
+                                    <i ng-if="dayArray[6]" style="font-size: 14px; vertical-align: middle" class="material-icons">done</i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </table>
+
+   <table width="100%" height="65" border="0" cellpadding="0" cellspacing="0" class="hidden-xs" class="plan_table" id="plan_container">
+                        <tr style="border-bottom: solid black; border-width: 1px">
+                            <td width="14%" height="10" class="" id="monday2">
+                                <button class="btn monday" style="width: 100%" align="center" ng-click="assignToDay(focus, 0)">mandag</button>
+                            </td>
+                            <td width="14%" class="" id="tuesday2">
+                                <div align="center" class="btn tuesday" style="width: 100%" ng-click="assignToDay(focus, 1)">tirsdag</div>
+                            </td>
+                            <td width="14%" class="" id="wednesday2">
+                                <button align="center" class="btn wednesday" style="width: 100%" ng-click="assignToDay(focus, 2)">onsdag</button>
+                            </td>
+                            <td width="14%" class="" id="thursday2">
+                                <button align="center" class="btn thursday" style="width: 100%" ng-click="assignToDay(focus, 3)">torsdag</button>
+                            </td>
+                            <td width="14%" class="" id="friday2">
+                                <button align="center" class="btn friday" style="width: 100%" ng-click="assignToDay(focus, 4)">fredag</button>
+                            </td>
+                            <td width="14%" class="" id="saturday2">
+                                <button align="center" class="btn saturday" style="width: 100%" ng-click="assignToDay(focus, 5)">l&oslash;rdag</button>
+                            </td>
+                            <td width="14%" class="" id="sunday2">
+                                <button align="center" class="btn sunday" style="width: 100%" ng-click="assignToDay(focus, 6)">s&oslash;ndag</button>
+                            </td>
+                        </tr>
+                        <tr style="font-size: 8px; height: 10px">
+                            <td class="day_plan monday" ng-click="assignToDay(focus, 0)" id="monday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[0].name">{{dayArray[0].name}}</div>
+                                <div ng-if="!dayArray[0].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan tuesday" ng-click="assignToDay(focus, 1)" id="tuesday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[1].name">{{dayArray[1].name}}</div>
+                                <div ng-if="!dayArray[1].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan wednesday" ng-click="assignToDay(focus, 2)" id="wednesday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[2].name">{{dayArray[2].name}}</div>
+                                <div ng-if="!dayArray[2].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan thursday" ng-click="assignToDay(focus, 3)" id="thursday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[3].name">{{dayArray[3].name}}</div>
+                                <div ng-if="!dayArray[3].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan friday" ng-click="assignToDay(focus, 4)" id="friday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[4].name">{{dayArray[4].name}}</div>
+                                <div ng-if="!dayArray[4].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan saturday" ng-click="assignToDay(focus, 5)" id="saturday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[5].name">{{dayArray[5].name}}</div>
+                                <div ng-if="!dayArray[5].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                            <td class="day_plan sunday" ng-click="assignToDay(focus, 6)" id="sunday2" style="border-radius: 6px;">
+                                <div ng-if="dayArray[6].name">{{dayArray[6].name}}</div>
+                                <div ng-if="!dayArray[6].name" style="font-size: 18px; font-weigth: lighter;">
+                                    <p></p>+</div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0" id="resetters">
+                        <tr style="font-size: 12px;">
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(0)">
+                                    <span style="color: red" ng-if="dayArray[0].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(1)">
+                                    <span style="color: red" ng-if="dayArray[1].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(2)">
+                                    <span style="color: red" ng-if="dayArray[2].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(3)">
+                                    <span style="color: red" ng-if="dayArray[3].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(4)">
+                                    <span style="color: red" ng-if="dayArray[4].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(5)">
+                                    <span style="color: red" ng-if="dayArray[5].name">x</span>
+                                </div>
+                            </td>
+                            <td width="14%" height="8" class="reset_buttons">
+                                <div class="btn" style="float: right; font-size: 10px; height: 25px; width: 9px;" ng-click="removeDish(6)">
+                                    <span style="color: red" ng-if="dayArray[6].name">x</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br><br> -->
+
+    <!-- </div> -->
+
+    <!-- <div class="col-lg-1"></div> -->
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+        <!-- RIGHT SIDE -->
+        <div>
+            <div id="scrollable_suggestions">
+                <table class="table-striped" id="righter">
+                    <tr>
+                        <thead>
+                            <th>
+                                <b>Forslag</b>
+                                <hr>
+                                <br>
+                            </th>
+                        </thead>
+                    </tr>
+                    <tbody>
+                        <tr ng-repeat="dish in suggestion_list | filter:name_search track by $index ">
+                            <td ng-click="select_suggestion_dish($index)">
+                                <div class="" style="cursor:pointer">
+                                    {{dish.name}}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button id="onwards" ng-disabled="!weekplan_score" style="color: white; width: 95%" class="btn btn-success btn-lg" type="button" name="button" ng-click="toShoppingList()">
+                <div>
+                    Til Indkøbslisten
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- **************************************************************************************************************************************************
+
+                                                          NAVIGATING RIGHT TO SHOPPING LIST
+
+ *************************************************************************************************************************************************** -->
+
+<div class="col-lg-12 workspace2" ng-if="switch">
+
+    <!-- BACK TO PLANNER BUTTON -->
+
+    <div class="col-lg-1" style="padding-top: 22%">
+        <button ng-disabled="!weekplan_score" style="color: white" class="btn btn-success btn-lg" type="button" name="button" ng-click="backToPlanner()">
+            <div style="font-size: 22px; padding-top: 17%" class="">
+                <i class="mi mi-arrow-back"></i>
+            </div>
+        </button>
+    </div>
+    <div class="col-lg-3"></div>
+    <!-- SHOPPING LIST -->
+    <div class="col-lg-4">
+        <div class="shopping_list">
+            <div class="">
+                <div class="input-group">
+                    <input
+                        ng-model="extra_ingredient"
+                        name="extra_ingredient"
+                        id="extra_ingredient"
+                        type="text"
+                        class="form-control"
+                        placeholder="Tilføj til indkøbslisten"
+                        uib-typeahead="ingredient.name for ingredient in ingredients | filter: $viewValue | limitTo: 17"
+                        autocomplete="off"
+                        typeahead-on-select="onTheSelect($item, $model, $label)">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" ng-click="addToList(extra_ingredient)">+</button>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <table class="table">
+                <tr>
+
+                    <thead style="font-size: 8px">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                </tr>
+                <tbody >
+                    <tr ng-repeat="item in final_shopping_list | orderBy: 'category'">
+                        <td>
+                            {{item.name}}
+                        </td>
+                        <td style="float: right;">
+                            <span ng-if="item.amount > 1">
+                                {{item.amount}}
+                            </span>
+                        </td>
+                        <td>
+                            <i style="float: right; font-size: 8px; cursor: pointer; color: #e85757" class="mi mi-clear"></i>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    <!-- SEND SHOPPING LIST BUTTON -->
+    <div class="col-lg-2" style="padding-top: 17%; padding-right: 2%">
+        <button class="btn btn-success  btn-lg" type="button" name="button" style="width: 100%">
+            <div style="font-size: 20px">
+                <i class="mi mi-email"></i>
+                <span>
+                    Send Indkøbsliste
+                </span>
+            </div>
+        </button>
+        <br><br>
+        <!-- SAVE WEEK PLAN -->
+        <button class="btn btn-primary btn-lg" type="button" name="button" ng-click="saveWeekplan()" style="width: 100%">
+            <div style="font-size: 20px">
+                <i class="mi mi-bookmark"></i>
+                <span>
+                    Gem Ugeplan
+                </span>
+            </div>
+        </button>
+    </div>
+
+</div>
+<!-- </div> -->

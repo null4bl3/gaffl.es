@@ -1,0 +1,156 @@
+<div class="col-lg-12 top_boss" id="ins_container" style="margin-top: -15px; width: 95%">
+	<ul class="nav nav-tabs">
+  <li id="dish_lists" style="cursor: pointer" class="active"><a ng-click="type('dishes')">Madretter</a></li>
+  <li id="week_lists" style="cursor: pointer"><a ng-click="type('weeks')">Ugeplaner</a></li>
+</ul>
+
+<!-- WEEKPLAN INSPIRATION SECTION -->
+
+<div class="col-lg-10" id="weekers_scrollable" ng-show="typeState" style="height: 700px">
+	<div ng-repeat="item in weeklist track by $index">
+	<div id="weekers">
+	  <table style="width: 100%; border-collapse:separate; border-spacing:1em; background-color: #383737; padding-bottom: 0%; padding-top: 0%" id="weekers">
+	    <tr>
+	      <thead>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs monday"  width="12%">mandag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs tuesday" width="12%">tirsdag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs wednesday" width="12%">onsdag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs thursday" width="12%">torsdag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs friday" width="12%">fredag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs saturday" width="12%">l&oslash;rdag</div>
+	        </th>
+	        <th class="table_items">
+	          <div align="center" class="the_day_divs sunday" width="12%">s&oslash;ndag</div>
+	        </th>
+	        <th width="12%" align="center">
+	          <div align="center" style="background-color: #696969">
+	            {{$index}}
+	          </div>
+	        </th>
+	      </thead>
+	    </tr>
+	    <tbody>
+	      <tr>
+	        <div class="weekplans">
+
+	          <td class="day_plan monday" width="12%">
+	            <div>{{item.dishes[0].name}}</div>
+	          </td>
+	            <td class="day_plan tuesday" width="12%">
+	            <div>{{item.dishes[1].name}}</div>
+	          </td>
+	          <td class="day_plan wednesday" width="12%">
+	            <div>{{item.dishes[2].name}}</div>
+	          </td>
+	          <td class="day_plan thursday" width="12%">
+	            <div>{{item.dishes[3].name}}</div>
+	          </td>
+	          <td class="day_plan friday" width="12%">
+	            <div>{{item.dishes[4].name}}</div>
+	          </td>
+	          <td class="day_plan saturday" width="12%">
+	            <div>{{item.dishes[5].name}}</div>
+	          </td>
+	          <td class="day_plan sunday" width="12%">
+	            <div>{{item.dishes[6].name}}</div>
+	          </td>
+	        <td class="day_plan" width="12%">
+	          <button class="btn btn-default" type="button" name="button">Rediger</button>
+	        </td>
+	      </div>
+	      <br>
+	        </tr>
+	    </tbody>
+			<tr>
+				<td style="float: left">
+					<i class="material-icons" style="font-size: 14px; color: #cb3838">favorite</i>
+				</td>
+				<td style="text-align: center" >
+					<i ng-click="comment()" class="material-icons" style="font-size: 14px">comment</i>
+				</td>
+				<td style="float: right">
+					<i class="material-icons" style="font-size: 14px">restaurant</i>
+				</td>
+			</tr>
+	  </table>
+
+	</div>
+	</div>
+</div>
+
+<!-- DISH INSPIRATION SECTION -->
+
+<div>
+
+<div class="col-lg-12" id="scrollable" ng-show="!typeState" style="padding-bottom: 0%" >
+	<div ng-repeat="item in dishlist | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize track by $index" class="dishers">
+		<div>
+		<div class="col-lg-4" style="padding-right: 2%; padding-top: 1%">
+						<div class="card col-lg-12" id="dish_detailers" style="padding-top: 0px">
+			        <!-- <hr style="margin-top: 5px"> -->
+							<div class="" style="padding-top: 10px">
+								<div class="col-lg-3" style="float: right; font-size: 10px">
+									<div class="col-lg-12" style="padding: 1.5%; padding-right: 2.7%; padding-left: 2.7%; color: black; background-color: white;">
+										Dish Score: <b>{{item.score}}</b>
+									</div>
+									<!-- <div class="col-lg-1" style="padding-left: 3%; padding-right: 3%" class="col-lg-2">
+
+									</div> -->
+									<div class="col-lg-12" style="padding: 1.5%; padding-right: 2.7%; padding-left: 2.7%; color: black; background-color: white;	">
+										Data Score: <b>{{item.score_data}}</b>
+									</div>
+
+								</div>
+						</div>
+							<div>
+								<h4><b>{{item.name}}</b></h4>
+								{{item.subtext}}
+								<hr style="color: white">
+								<div class="row">
+									<div class="col-lg-1" id="ing_list">
+										<ul ng-repeat="ing in item.ingredients">
+											<li>{{ing.name}}</li>
+										</ul>
+									</div>
+									<div class="col-lg-4" style="float: right; padding-right: 5%">
+										<div>
+										<img style="max-width: 270px; float: right; width:auto; height:auto; max-height: 80%;" ng-src="/public/{{item.image}}" alt="" />
+									</div>
+			            <br>
+								</div>
+							</div>
+						</div>
+						<table height="20px" width="100%">
+							<tr>
+								<td style="float: left; cursor:pointer">
+									<i class="material-icons" style="font-size: 14px; color: #ac8484" ng-style="like" ng-click="like={color:'#e03939'}">favorite</i>
+								</td>
+								<td ng-click="comment(item)" style="text-align: center">
+									<i class="material-icons" style="font-size: 14px; cursor:pointer">comment</i>
+								</td>
+								<td style="float: right; cursor:pointer" ng-click="forkDish(item)">
+									<i class="material-icons" style="font-size: 14px;">restaurant</i>
+								</td>
+							</tr>
+						</table>
+					</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="col-lg-8" style="left: 43%; margin-top: -85px"  ng-show="!typeState">
+
+<uib-pagination class="pagination pagination-sm" total-items="dishlist.length" ng-model="currentPage" items-per-page="pageSize" ng-change="pageChanged()"></uib-pagination>
+</div>
+</div>

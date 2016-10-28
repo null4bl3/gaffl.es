@@ -1,0 +1,69 @@
+<div id="fullpage">
+<div class="section">
+	<!-- <h3>Hej {{user.name}}</h3>
+	<p>
+		Her er de data vi kan køre på dig:
+	</p> -->
+	<div class="">
+	</div>
+	<div style="text-align: center" class="jumbotron jumbotron-fluid">
+		<h2>
+			Dit gennemsnit er :
+		</h2>
+		<p style="font-size: 60px; color: #62b968">
+			<b>
+			{{user.average}}
+			</b>
+		</p>
+	</div>
+	</div>
+
+	<div class="section">
+
+	<div class="col-lg-2"></div>
+	<div class="col-lg-4" id="chacon" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div class="col-lg-1"></div>
+	<div class="col-lg-4" id="chaconmac" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+
+	<div class="section">
+
+	<div class="col-lg-3"></div>
+
+
+	<div class="col-lg-6" ng-if="ghetto">
+		<h4 style="text-align: center">Du er klassificeret som "ghetto"</h4>
+		<img src="./public/ghetto.png" alt="" />
+	</div>
+	<div class="col-lg-6" ng-if="burgojser">
+		<h4 style="text-align: center">Du er klassificeret som "burgøjser"</h4>
+		<img src="./public/burgojser.jpg" alt="" />
+	</div>
+	<div class="col-lg-6" ng-if="osterbro">
+		<h4 style="text-align: center">Du er klassificeret som "østerbro"</h4>
+		<img src="./public/oesterbro2.jpg" alt="" />
+	</div>
+
+</div>
+
+<!-- DISHES DATA CHART -->
+
+<div class="section">
+	<div class="col-lg-2"></div>
+	<div>
+		<div class="col-lg-8" id="chart_container" style="height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+
+<!-- INGREDIENTS DATA CHART -->
+
+<div class="section">
+	<div class="col-lg-2"></div>
+	<div>
+		<div class="col-lg-8" id="chart_ing_container" style="height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+
+
+</div>

@@ -1,0 +1,60 @@
+<div class="col-lg-12 row" style="padding-top: 0%">
+  <div class="col-lg-4"></div>
+    <div class="col-lg-4 row"  style="padding-left: 5%">
+      <div id="topbox">
+        <h4>Tilføj din personlige ret</h4>
+        <hr>
+        <form name="new_dish" novalidate>
+            <label class="label label-default" for="name">Navn på retten<a style="color:red">*</a></label>
+            <input ng-model="name" id="dish_name" class="form-control" type="text" name="name" required placeholder="Rettens navn">
+            <span style="color:red" ng-show="new_dish.name.$dirty && new_dish.name.$invalid">
+              <span ng-show="new_dish.name.$error.required">Et navn er påkrævet.</span>
+            </span>
+						<br>
+            <label class="label label-default" for="name">Brødtekst</label>
+            <input ng-model="subtext" class="form-control" type="text" name="subtext"required placeholder="Brødtekst til retten">
+            <br>
+						<br>
+            <div>
+            <div id="empty" class="alert alert-danger fade in">
+              <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Skal udfyldes!</strong>
+            </div>
+            <div id="holdup" class="alert alert-success fade in">
+              <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Tilføjer ret til databasen!</strong>
+            </div>
+            </div>
+        </form>
+      </div>
+        <div id="bottombox">
+      <h4>Ingrediens liste</h4>
+      <hr>
+			<div class="panel panel-success" style="padding-top: 0%; height: 50vh; width: 100%">
+        <div class="input-group" style="padding: 2%; padding-top: 5% ; padding-left: 5%; padding-right:5%">
+            <input ng-model="ing" name="ingredient" id="ingredient" type="text" class="form-control" placeholder="Tilføj ingrediens" uib-typeahead="ingredient.name for ingredient in ingredients | filter: $viewValue | limitTo: 17" autocomplete="off" typeahead-on-select="onSelect($item, $model, $label)">
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-click="addToList(ing)">+</button>
+            </span>
+        </div>
+        <br>
+			    <div class="panel-heading">
+			        <h3 class="panel-title">Ingredienser:</h3>
+			    </div>
+			    <div class="panel-body">
+							<ul ng-repeat="item in ingredient_list track by $index" class="ingredient_listing" style="height: 95%">
+								<li>{{item.name}} <div style="float: right; font-size: 11px; color: #ab4c4c; cursor: pointer; background: transparent; padding: 3px" ng-click="removeItem($index)">x</div></li>
+							</ul>
+			    </div>
+			</div>
+    </div>
+		</div>
+    	<div class="col-lg-1"></div>
+    <div class="col-lg-2" id="rightThing">
+    <div class="" style="padding-left: 25%; padding-top: 140%">
+
+      <button id="submitter" class="btn btn-success btn-lg" type="submit" name="button" ng-disabled="new_dish.name.$dirty && new_dish.name.$invalid ||
+      new_dish.subtext.$dirty && new_dish.subtext.$invalid" ng-click="submitDish()">Opret Ret</button>
+
+    </div>
+</div>
