@@ -1,15 +1,12 @@
 Intelligent Meal Planner.
-Using data analysis the web application is able to provide intelligent meal suggestions and focused advertisement.
+Data analysis on the web application provides intelligent meal suggestions and focuses advertisements.
 
 A+ in Computer Science.
 
 Gaffl.es
-A play on words from the Danish word for "fork", this project resulted in a A+ on my final exam in Computer Science.
-The project is a portal offering users a platform for planning their weekly meals for dinner resulting in fewer trips to the store in the attempt to lower needless spending and consumption.
+A play on words from the Danish word for "fork", this project resulted in a A+ on my final exam in Computer Science. The project offers users a platform to planning their weekly dinners, which reduces users’ trips and expenditures.
 
-
-Behind the scenes i implemented advanced data analysis of user choices to offer intelligent meal suggestions for their planning and enabling a platform for targeted marketing in advertising by analyzing dish ingredients in context of occurrence, price range and other factoring parameters. 
-
+Implementing data analysis on user choices offers intelligent meal plans and enables the platform of targeted markets analyzed by factoring parameters in advertisements.
 
 Data analysis was conducted using the official nutritional data provided by the Food Ministry of the Danish government. 
 
