@@ -3,7 +3,7 @@
 Intelligent Meal Planner.
 Using data analysis the web application is able to provide intelligent meal suggestions and focused advertisement.
 
-A+ in Computer Science.
+**A+ in Computer Science.**
 
 
 Gaffl.es is a play on words from the Danish word for "fork", this project resulted in a A+ on my final exam in Computer Science.The project is a portal offering users a platform for planning their weekly meals for dinner resulting in fewer trips to the store in the attempt to lower needless spending and consumption.
