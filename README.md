@@ -1,4 +1,4 @@
-#gaffl.es / fork.li
+# gaffl.es / fork.li
 
 Intelligent Meal Planner.
 Using data analysis the web application is able to provide intelligent meal suggestions and focused advertisement.
@@ -14,7 +14,7 @@ Data analysis was conducted using the official nutritional data provided by the 
 
 Node js, Angular js 1.5, HTML5, CSS3, JQuery, Bootstrap, Grunt, NPM, Debian Wheezy , Python, Crontab , MySQL, MongoDB, Git, Nginx
 
-##Please note that the "computation" algorithm is not present in the repository. 
+## Please note that the "computation" algorithm is not present in the repository. 
 To get an idea of what is going on please take a look at the documentation:
 
 ![alt tag](https://github.com/null4bl3/Gaffl.es/raw/master/COMPUTATION_V_4.png)
